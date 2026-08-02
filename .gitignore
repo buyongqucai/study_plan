@@ -1,0 +1,40 @@
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
+~$*
+.vscode/
+.idea/
+
+# Local one-off scripts
+_*.py
+__pycache__/
+
+# Media & archives
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wmv
+*.flv
+*.m4v
+*.qkdownloading
+*.zip
+*.rar
+*.7z
+
+# Courseware / textbooks (keep on disk only)
+*.pdf
+*.epub
+*.mobi
+*.docx
+*.doc
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+
+# Video trees: ignore all, then allow markdown lists only
+**/07-视频课程/**
+!**/07-视频课程/**/*.md

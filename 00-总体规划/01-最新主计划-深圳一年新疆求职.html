@@ -1,0 +1,493 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>01 · 最新主计划 · 2026税务师优先</title>
+  <style>
+    :root {
+      --bg: #f3f0ea; --paper: #fffcf7; --ink: #1a2332; --muted: #5a6472;
+      --line: #ddd4c6; --g: #0f5c4c; --gs: #e2f0eb; --b: #1e4d7b; --bs: #e8f0f7;
+      --w: #8a4b12; --ws: #f7ead8; --r: #7a3045; --rs: #f5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      color: var(--ink); line-height: 1.65;
+      background: radial-gradient(800px 420px at 100% 0%, #e8efe6, transparent 55%), var(--bg);
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 56px; }
+    header {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
+      padding: 24px; margin-bottom: 14px;
+    }
+    .ver {
+      display: inline-block; font-size: 12px; font-weight: 700; color: #fff;
+      background: var(--g); padding: 4px 10px; border-radius: 999px; margin-bottom: 8px;
+    }
+    h1 {
+      font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+      font-size: clamp(1.35rem, 2.6vw, 1.85rem); margin: 0 0 10px; line-height: 1.3;
+    }
+    .lead { color: var(--muted); margin: 0 0 12px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      font-size: 12px; padding: 5px 11px; border-radius: 999px;
+      border: 1px solid var(--line); background: #fff; color: var(--muted);
+    }
+    .pill b { color: var(--ink); }
+    section {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+      padding: 18px 20px 22px; margin-bottom: 12px;
+    }
+    h2 {
+      font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", serif;
+      font-size: 1.2rem; margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    }
+    h3 { font-size: 1rem; margin: 16px 0 8px; color: var(--b); }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 8px 0; }
+    th, td { border: 1px solid var(--line); padding: 8px 9px; vertical-align: top; text-align: left; }
+    th { background: #f0e9de; }
+    tr:nth-child(even) td { background: #fffcf9; }
+    .ok { background: var(--gs); border-left: 4px solid var(--g); padding: 11px 13px; border-radius: 0 10px 10px 0; margin: 10px 0; font-size: 14px; }
+    .warn { background: var(--ws); border-left: 4px solid var(--w); padding: 11px 13px; border-radius: 0 10px 10px 0; margin: 10px 0; font-size: 14px; }
+    .info { background: var(--bs); border-left: 4px solid var(--b); padding: 11px 13px; border-radius: 0 10px 10px 0; margin: 10px 0; font-size: 14px; }
+    .danger { background: var(--rs); border-left: 4px solid var(--r); padding: 11px 13px; border-radius: 0 10px 10px 0; margin: 10px 0; font-size: 14px; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 720px) { .grid2 { grid-template-columns: 1fr; } }
+    .card { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .card h4 { margin: 0 0 6px; font-size: 14px; }
+    .card ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--muted); }
+    .phase { border-left: 3px solid var(--g); padding: 0 0 14px 12px; margin: 0 0 4px 2px; }
+    .phase .t { font-size: 12px; font-weight: 700; color: var(--g); }
+    .phase .h { font-weight: 700; margin: 2px 0 4px; }
+    .phase p { margin: 0; font-size: 13.5px; color: var(--muted); }
+    footer { text-align: center; font-size: 12px; color: var(--muted); margin-top: 8px; }
+    a { color: var(--g); }
+    .todo-head {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+      margin-bottom: 8px;
+    }
+    .todo-head .meta { font-size: 13px; color: var(--muted); }
+    .btn {
+      font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 8px; cursor: pointer;
+      border: 1px solid var(--line); background: #fff; color: var(--ink);
+    }
+    .btn:hover { background: var(--gs); border-color: var(--g); }
+    .todo-group { margin: 14px 0 6px; }
+    .todo-group h3 { margin: 0 0 8px; font-size: 0.95rem; }
+    .todo-list { list-style: none; margin: 0; padding: 0; }
+    .todo-list li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px;
+      margin-bottom: 6px; background: #fff; font-size: 13.5px;
+    }
+    .todo-list li.done { opacity: 0.55; text-decoration: line-through; background: #f7f4ef; }
+    .todo-list li.urgent { border-color: #c97a2a; background: #fff8ef; }
+    .todo-list input { margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; }
+    .todo-list .due {
+      display: inline-block; font-size: 11px; font-weight: 700; color: var(--w);
+      background: var(--ws); padding: 1px 7px; border-radius: 999px; margin-right: 6px;
+    }
+    .divider {
+      margin: 28px 0 16px; text-align: center; font-size: 12px; font-weight: 700;
+      letter-spacing: .08em; color: var(--muted);
+    }
+    .divider::before, .divider::after {
+      content: ""; display: inline-block; width: 48px; height: 1px;
+      background: var(--line); vertical-align: middle; margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="ver">01 · 2026税务师优先 · 会计+税法明年 · AI管理会计师</div>
+      <h1>深圳影刀一年 → 明年新疆求职</h1>
+      <p class="lead">
+        身份：影刀 RPA 教练（医药/制造客户）· 江财 CPA 本科 + 审计硕士 · 目标 2027 伊宁/霍尔果斯数字财务/主管岗。<br>
+        <strong>今年（2026）先过税务师税法一+二 → 明年 CPA 会计+税法更省力；数字化只考 AI管理会计师。</strong>
+        科目学习地图见 <a href="../README.md">项目 README</a> · <a href="../01-税务师/README.md">税务师</a> · <a href="../02-CPA/README.md">CPA</a> · <a href="../03-AI管理会计师/README.md">AI管理会计师</a>。
+      </p>
+      <div class="pills">
+        <span class="pill"><b>税务师</b> 2026-11 税法一/二</span>
+        <span class="pill"><b>CPA</b> 2027-08 会计+税法</span>
+        <span class="pill"><b>AI管理会计师</b> 2026-12 起</span>
+        <span class="pill"><b>求职</b> 2027 新疆</span>
+      </div>
+    </header>
+
+    <section>
+      <div class="danger">
+        <strong>立刻写入手机日历：</strong>2026-08-13 10:00 税务师<strong>补报名开始</strong>
+        （截止 08-24 17:00）· 入口
+        <a href="https://ksbm.ecctaa.cn" target="_blank" rel="noopener">ksbm.ecctaa.cn</a>
+        · 科目只报<strong>税法（一）+ 税法（二）</strong>，勿五科全上。
+      </div>
+    </section>
+
+    <section id="todo">
+      <div class="todo-head">
+        <h2 style="margin:0;padding:0;border:0">一、可勾选 Todo（刷新不丢）</h2>
+        <div>
+          <span class="meta" id="todoProgress">已完成 0 / 0</span>
+          <button type="button" class="btn" id="todoReset">重置全部勾选</button>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 8px">勾选状态保存在本机浏览器 localStorage，换电脑不会同步。</p>
+      <div id="todoRoot"></div>
+    </section>
+
+    <section>
+      <h2>二、报名 / 考试总表</h2>
+      <table>
+        <tr><th>事项</th><th>时间</th><th>科目 / 说明</th><th>入口</th></tr>
+        <tr>
+          <td><strong>税务师补报名</strong></td>
+          <td><strong>2026-08-13 10:00 – 08-24 17:00</strong></td>
+          <td>税法一 + 税法二</td>
+          <td><a href="https://ksbm.ecctaa.cn" target="_blank" rel="noopener">ksbm.ecctaa.cn</a></td>
+        </tr>
+        <tr>
+          <td><strong>税务师考试</strong></td>
+          <td><strong>2026-11-14～15</strong></td>
+          <td>以准考证为准</td>
+          <td>同上</td>
+        </tr>
+        <tr>
+          <td>AI管理会计师</td>
+          <td>建议 <strong>2026-12 及以后</strong>（授权机构）</td>
+          <td>IITC 岗位能力评价 · 无统一自助网报 · 费用以机构为准</td>
+          <td><a href="https://www.miitec.cn" target="_blank" rel="noopener">miitec.cn</a>（发证单位）</td>
+        </tr>
+        <tr>
+          <td>CPA 报名</td>
+          <td>约 2027-04</td>
+          <td>会计 + 税法</td>
+          <td><a href="https://cpaexam.cicpa.org.cn" target="_blank" rel="noopener">cpaexam.cicpa.org.cn</a></td>
+        </tr>
+        <tr>
+          <td>CPA 交费</td>
+          <td>约 2027-06</td>
+          <td>锁定两科</td>
+          <td>同上</td>
+        </tr>
+        <tr>
+          <td>CPA 考试</td>
+          <td><strong>2027-08</strong></td>
+          <td>通常同日上午会计、下午税法</td>
+          <td>准考证约考前 2 周</td>
+        </tr>
+        <tr>
+          <td>中级会计</td>
+          <td>入疆满会计年限后</td>
+          <td>现岗（RPA 教练）暂缓</td>
+          <td>—</td>
+        </tr>
+      </table>
+      <div class="warn">
+        <strong>不做：</strong>CDA、数字化会计师初级、再堆第二张 AI 证——数字化<strong>只考 AI管理会计师</strong>（授权机构报名；无统一自助网报）。
+      </div>
+    </section>
+
+    <section>
+      <h2>三、学习计划（从现在到 2027-08）</h2>
+      <div class="ok">
+        <strong>公式：</strong>3 个医药/制造案例 + 税务师税法一/二（2026-11）+ AI管理会计师（2026-12 起）+ CPA 会计&amp;税法（2027-08）
+        → 2027 谈新疆数字化财务/主管岗（综合争取高于国网伊犁财务口碑，目标约 ≥15–18 万）。
+      </div>
+
+      <div class="phase">
+        <div class="t">阶段 1 · 即日起 — 2026-08-24</div>
+        <div class="h">补报名 + 税法启动</div>
+        <p>
+          工作日：案例#1 推进。<br>
+          周末：税法一（增值税为主）框架 + 税法二（企业所得税）入门。<br>
+          <strong>8/13–8/24：完成补报名与交费，科目仅税法一、二。</strong>
+        </p>
+      </div>
+      <div class="phase">
+        <div class="t">阶段 2 · 2026-09 — 10</div>
+        <div class="h">周末主攻税法一/二 · 案例收官</div>
+        <p>
+          周六：税法一精读+题；周日：税法二精读+题（或相反，两科均衡）。<br>
+          中秋：税法冲刺；国庆：税法一轮收尾 + 错题本，勿挪去考 AI管理会计师。<br>
+          工作日：案例#2–#3；列新疆企业池 20 家。
+        </p>
+      </div>
+      <div class="phase">
+        <div class="t">阶段 3 · 2026-11 ★</div>
+        <div class="h">税务师考试周</div>
+        <p>11/14–15 参考。考前 3 周每周至少各科 1 套模拟。考完休息一周。</p>
+      </div>
+      <div class="phase">
+        <div class="t">阶段 4 · 2026-12 — 2027-02</div>
+        <div class="h">AI管理会计师 + CPA 双科启动</div>
+        <p>
+          12 月：通过授权机构报名 AI管理会计师；用 2–4 个周日下午突击，争取春节前出证。<br>
+          同步：周六开始 CPA《会计》；税法可吃税务师复利，周日轻量预习 CPA《税法》。<br>
+          春节长假：约 60% 会计 + 40% 税法。
+        </p>
+      </div>
+      <div class="phase">
+        <div class="t">阶段 5 · 2027-03 — 06 · 新疆求职主攻 ★</div>
+        <div class="h">投递 + CPA 报名交费</div>
+        <p>
+          简历：影刀深圳 + 医药/制造 RPA 节降案例 + AI管理会计师 + 税务师两科（或成绩）+ CPA 会计&amp;税法在考。<br>
+          约 4 月 CPA 报名；约 6 月交费。面试尽量排工作日晚或周日晚。
+        </p>
+      </div>
+      <div class="phase">
+        <div class="t">阶段 6 · 2027-07 — 08</div>
+        <div class="h">CPA 会计+税法冲刺与考试</div>
+        <p>每周至少会计 1 套 + 税法 1 套。谈 offer 时争取考完再入职，或入职后准假赴考。</p>
+      </div>
+
+      <h3>周末课表（2026-08 — 11 税务师窗口）</h3>
+      <div class="grid2">
+        <div class="card">
+          <h4>周六 · 税法一日（5–7h）</h4>
+          <ul>
+            <li>上午：税法一新课/重难点</li>
+            <li>下午：章节题 + 错题</li>
+            <li>考前 3 周改模考</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>周日 · 税法二日（4–6h）</h4>
+          <ul>
+            <li>上午：税法二精读/习题</li>
+            <li>下午：默认休息或错题</li>
+            <li>此阶段<strong>不占</strong> AI管理会计师（留给 12 月）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider">解释与适配</div>
+
+    <section>
+      <h2>四、为什么今年先考税务师（而不是明年）</h2>
+      <ul style="margin:0;padding-left:20px;font-size:14px;color:var(--muted)">
+        <li><strong>与 CPA 税法高度重合：</strong>先过税务师两科，明年 CPA《税法》复习成本显著下降——顺序是「税务师 → CPA」，不是反过来拖到 2027-11。</li>
+        <li><strong>2027 春招叙事：</strong>投新疆时已有「税务师在途/过科 + 数字化案例 + AI管理会计师」，比「只写 CPA 在考」更完整。</li>
+        <li><strong>补报名窗口还在：</strong>正式报名已过，但 8/13–8/24 补报仍可上车；错过则只能再等一年。</li>
+        <li><strong>只报两科：</strong>周末容量只够税法一/二；五科全上会挤爆案例与生活节奏。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>五、适合你的企业与岗位（伊宁 / 霍尔果斯）</h2>
+      <div class="info">
+        你不是「转回出纳/总账」的路径，而是用<strong>影刀落地经验 + 财税硬考 + 数据证</strong>去谈：共享/数字化财务、业财流程、RPA/AI 节降、财务主管搭体系。
+      </div>
+      <table>
+        <tr><th>企业类型</th><th>为什么适合</th><th>目标岗位关键词</th></tr>
+        <tr>
+          <td>霍尔果斯跨境 / 贸易 / 园区企业</td>
+          <td>税种与合规敏感；愿为「能落地系统+懂税」付溢价</td>
+          <td>税务会计主管、财务 BP、数字化财务</td>
+        </tr>
+        <tr>
+          <td>医药 / 制造（你已有客户画像）</td>
+          <td>案例可直接复用；成本与流程自动化刚需</td>
+          <td>财务共享、费用/成本自动化、业财分析</td>
+        </tr>
+        <tr>
+          <td>有共享中心或计划上 RPA 的集团分子公司</td>
+          <td>你的教练履历 = 别人要外聘实施的能力</td>
+          <td>财务信息化、流程优化、共享运营</td>
+        </tr>
+        <tr>
+          <td>国央企财务（对照锚点）</td>
+          <td>国网伊犁等作薪资下限参考，不必当唯一志愿</td>
+          <td>综合目标高于其财务口碑（约 8–15 万）</td>
+        </tr>
+      </table>
+      <h3>对方通常会看什么</h3>
+      <table>
+        <tr><th>维度</th><th>你怎么交卷</th></tr>
+        <tr><td>能不能干活</td><td>3 个可量化节降/人效案例（医药/制造优先）</td></tr>
+        <tr><td>懂不懂财税</td><td>税务师两科 + CPA 会计/税法在考</td></tr>
+        <tr><td>财务+AI 标签</td><td>AI管理会计师（IITC）+ 影刀落地案例</td></tr>
+        <tr><td>能不能带体系</td><td>面试讲「需求→流程→RPA/AI→验收指标」，不只讲录屏操作</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>六、付出标准与到达标准</h2>
+      <div class="grid2">
+        <div class="card">
+          <h4>每周付出（默认）</h4>
+          <ul>
+            <li>工作日：案例/客户交付（主业）+ 每周 1 次案例素材整理</li>
+            <li>周六日：考证 9–13h（税务师季几乎全给税法）</li>
+            <li>法定假：按阶段劈给当前主考科目</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>2027-03 求职时应达到</h4>
+          <ul>
+            <li>☐ 案例包 ×3（含节降数字、你的角色、可复述故事）</li>
+            <li>☐ 税务师税法一/二已考（最好有过科成绩）</li>
+            <li>☐ AI管理会计师 已出证或已约考</li>
+            <li>☐ 新疆企业池 ≥20，已开始定向投递</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ok" style="margin-top:12px">
+        <strong>成功定义（一年视角）：</strong>拿到新疆数字财务/共享/主管类 offer，综合包明显高于「当地传统核算岗」与国网伊犁财务口碑区间；
+        且 CPA 会计+税法已锁定 2027-08 考试。证书是敲门砖，案例与「能搭体系」才是溢价。
+      </div>
+    </section>
+
+        <section>
+      <h2>七、相关文件与笔记夹</h2>
+      <div class="info">本夹<strong>只保留本主计划</strong>。电子教材与章节笔记在各科目夹的 <code>01-电子教材</code> / <code>02-章节笔记</code>；每科打开各科地图（如 <code>税法一-学习地图.html</code>）。全科（含未报名科目）文件夹已建好，可先放教材。</div>
+      <table>
+        <tr><th>位置</th><th>打开这个</th></tr>
+        <tr><td>根目录</td><td><a href="../README.md">README.md</a></td></tr>
+        <tr><td>本文件</td><td>Todo 执行版（本页）</td></tr>
+        <tr><td>税务师地图</td><td><a href="../01-税务师/税法一/税法一-学习地图.html">税法一</a> · <a href="../01-税务师/税法二/税法二-学习地图.html">税法二</a>（另有实务/法律/财会教材夹）</td></tr>
+        <tr><td>CPA 地图</td><td><a href="../02-CPA/会计/会计-学习地图.html">会计</a> · <a href="../02-CPA/税法/税法-学习地图.html">税法</a>（另有审计等教材夹）</td></tr>
+        <tr><td>AI</td><td><a href="../03-AI管理会计师/README.md">九模块学习地图</a></td></tr>
+      </table>
+    </section>
+
+    <footer>
+      01-最新主计划 · 2026税务师优先 · AI管理会计师 · 2026-08-01 · 请认准「01-最新」开头
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = "advplan01_todos_v20260801";
+      var GROUPS = [
+        {
+          title: "报名（紧急）",
+          items: [
+            { id: "reg_calendar", urgent: true, due: "8/13前", text: "手机日历写入：2026-08-13 10:00 税务师补报名开始" },
+            { id: "reg_account", urgent: true, due: "8/13前", text: "开通/登录 ksbm.ecctaa.cn，准备身份证与报名材料" },
+            { id: "reg_submit", urgent: true, due: "8/13–8/24", text: "完成补报名：仅税法（一）+ 税法（二），并交费成功" },
+            { id: "reg_admit", due: "考前", text: "下载税务师准考证，确认考场与时间（约 11/14–15）" }
+          ]
+        },
+        {
+          title: "考试",
+          items: [
+            { id: "exam_tax1", due: "2026-11", text: "参加税务师《税法（一）》考试" },
+            { id: "exam_tax2", due: "2026-11", text: "参加税务师《税法（二）》考试" },
+            { id: "exam_cda", due: "2026-12起", text: "参加 AI管理会计师测评（授权机构）" },
+            { id: "exam_cpa_acc", due: "2027-08", text: "参加 CPA《会计》考试" },
+            { id: "exam_cpa_tax", due: "2027-08", text: "参加 CPA《税法》考试" }
+          ]
+        },
+        {
+          title: "学习里程碑（税务师季）",
+          items: [
+            { id: "study_vat", due: "9月底", text: "税法一：增值税框架 + 客观题正确率过线" },
+            { id: "study_cit", due: "10月中", text: "税法二：企业所得税主干章节过完" },
+            { id: "study_national", due: "国庆后", text: "国庆假期完成税法一/二一轮收尾与错题本" },
+            { id: "study_mock", due: "11月前3周", text: "考前 3 周：每周税法一、税法二各至少 1 套模考" }
+          ]
+        },
+        {
+          title: "数字化证书（只选 AI管理会计师）",
+          items: [
+            { id: "cda_hold", due: "11月前", text: "11 月税务师前：不报名抢考期，避免与冲刺冲突" },
+            { id: "cda_pay", due: "2026-12", text: "税务师考后：选定授权机构并完成 AI管理会计师报名缴费" },
+            { id: "cda_book", due: "2026-12", text: "确认测评日期；材料与官网可查规则写进 03-AI管理会计师/报名备忘" },
+            { id: "cda_cert", due: "2027-02前", text: "拿到 AI管理会计师证书（确认官网可查）" }
+          ]
+        },
+        {
+          title: "案例 / 求职并行",
+          items: [
+            { id: "case1", due: "2026-09", text: "案例#1 成稿（医药或制造 · 含节降数字）" },
+            { id: "case2", due: "2026-10", text: "案例#2 成稿" },
+            { id: "case3", due: "2026-10", text: "案例#3 成稿；三件套可面试复述" },
+            { id: "pool20", due: "2026-10", text: "新疆（伊宁/霍尔果斯）企业池 ≥20 家" },
+            { id: "job_start", due: "2027-03", text: "启动新疆定向投递与面试" },
+            { id: "cpa_reg", due: "2027-04", text: "CPA 报名：会计 + 税法" },
+            { id: "cpa_pay", due: "2027-06", text: "CPA 交费锁定两科" }
+          ]
+        }
+      ];
+
+      var root = document.getElementById("todoRoot");
+      var progressEl = document.getElementById("todoProgress");
+      var resetBtn = document.getElementById("todoReset");
+
+      function loadState() {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") || {};
+        } catch (e) {
+          return {};
+        }
+      }
+
+      function saveState(state) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function render() {
+        var state = loadState();
+        root.innerHTML = "";
+        var total = 0;
+        var done = 0;
+        GROUPS.forEach(function (g) {
+          var wrap = document.createElement("div");
+          wrap.className = "todo-group";
+          var h = document.createElement("h3");
+          h.textContent = g.title;
+          wrap.appendChild(h);
+          var ul = document.createElement("ul");
+          ul.className = "todo-list";
+          g.items.forEach(function (it) {
+            total += 1;
+            var checked = !!state[it.id];
+            if (checked) done += 1;
+            var li = document.createElement("li");
+            if (checked) li.classList.add("done");
+            if (it.urgent && !checked) li.classList.add("urgent");
+            var cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = checked;
+            cb.setAttribute("data-id", it.id);
+            cb.addEventListener("change", function () {
+              var s = loadState();
+              if (cb.checked) s[it.id] = true;
+              else delete s[it.id];
+              saveState(s);
+              render();
+            });
+            var span = document.createElement("span");
+            if (it.due) {
+              var due = document.createElement("span");
+              due.className = "due";
+              due.textContent = it.due;
+              span.appendChild(due);
+            }
+            span.appendChild(document.createTextNode(it.text));
+            li.appendChild(cb);
+            li.appendChild(span);
+            ul.appendChild(li);
+          });
+          wrap.appendChild(ul);
+          root.appendChild(wrap);
+        });
+        progressEl.textContent = "已完成 " + done + " / " + total;
+      }
+
+      resetBtn.addEventListener("click", function () {
+        if (!confirm("确定清空本页全部 Todo 勾选？")) return;
+        localStorage.removeItem(STORAGE_KEY);
+        render();
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
