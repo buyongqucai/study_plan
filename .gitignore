@@ -38,3 +38,10 @@ __pycache__/
 # Video trees: ignore all, then allow markdown lists only
 **/07-视频课程/**
 !**/07-视频课程/**/*.md
+
+# 习题看板：浏览器导出暂存
+**/06-习题看板/**/导出/*.json
+**/06-交互习题/**/导出错题/*.json
+tools/教材习题交互/_tmp_*
+tools/教材习题交互/_生成*
+tools/**/__pycache__/
