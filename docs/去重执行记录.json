@@ -641,5 +641,38 @@
       "size": 57443
     }
   ],
-  "skipped": []
+  "skipped": [
+    [
+      "readme.md",
+      "too small"
+    ],
+    [
+      "readme.md",
+      "too small"
+    ],
+    [
+      "readme.md",
+      "too small"
+    ],
+    [
+      "放置说明.md",
+      "too small"
+    ],
+    [
+      "例题模板.md",
+      "too small"
+    ],
+    [
+      "阶段复盘模板.md",
+      "too small"
+    ],
+    [
+      "错题本.md",
+      "too small"
+    ],
+    [
+      "模考记录.md",
+      "too small"
+    ]
+  ]
 }
